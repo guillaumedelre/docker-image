@@ -1,0 +1,56 @@
+
+server {
+
+    listen 80;
+    root /mnt/sources/wetest/webapp/web;
+    index app.php;
+    server_name webapp.local.wetest.io;
+
+    access_log /var/log/nginx/wetest-webapp.access.log;
+    error_log /var/log/nginx/wetest-webapp.error.log;
+
+    # static assets ?
+    rewrite ^/?webapp/(.*) /$1 last;
+
+    # handle gateway rewrite
+    if ($http_x_wetest_gateway_host = '') {
+        set $http_x_wetest_gateway_host $host;
+    }
+    # add_header X-Wetest-Gateway-Path <current-subtree> always;
+    add_header X-Wetest-Gateway-Path webapp always;
+
+    # handle environment, env var via lua is only for dockerized IT
+    set_by_lua $wetest_environment 'return os.getenv("SYMFONY_ENV")';
+    if ($http_x_wetest_environment = 'prod') {
+        set $wetest_environment 'prod';
+    }
+
+    # build artifacts
+    location /build/ {
+        autoindex on;
+    }
+
+    location / {
+        try_files $uri /app.php$is_args$args;
+    }
+
+    location ~ ^/(app|debug)\.php(/|$) {
+        fastcgi_pass app:9000;
+        fastcgi_split_path_info ^(.+\.php)(/.*)$;
+        include fastcgi_params;
+        # gateway rewrite
+        fastcgi_param HTTP_HOST $http_x_wetest_gateway_host;
+        fastcgi_param SERVER_NAME $http_x_wetest_gateway_host;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_param HTTPS off;
+        fastcgi_param SYMFONY__SYMFONY_ENV $wetest_environment;
+        fastcgi_param PHP_VALUE "
+            blackfire.server_id=37e045d1-42bf-445d-96d9-4af307c58f0c
+            blackfire.server_token=1ebe21d90c8dd48ddfe21ffc270038db389c6cd705b0784f42dbf62e5011a9d2
+        ";
+
+        # Prevents URIs that include the front controller. This will 404:
+        #internal;
+    }
+
+}

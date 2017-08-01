@@ -1,0 +1,3 @@
+parameters:
+    tracking_tool.url: "//nexus.ensighten.com/francemm/infomigrants-ppr/Bootstrap.js"
+    tracking_tool.id: "581660"

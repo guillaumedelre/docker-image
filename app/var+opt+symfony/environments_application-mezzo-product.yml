@@ -1,0 +1,8 @@
+fmm_mezzo_product:
+    environments:
+        -
+          name: "Preprod"
+          endpoint: "http://mezzo.preprod.francemm.com/product"
+        -
+          name: "Prod"
+          endpoint: "http://mezzo.prod.francemm.com/product"

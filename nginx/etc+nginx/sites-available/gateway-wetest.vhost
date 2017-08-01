@@ -1,0 +1,43 @@
+
+upstream service_wetest-webapp {
+    server webapp.local.wetest.io:80;
+    keepalive 4;
+}
+
+server {
+
+    listen 80;
+    server_name local.wetest.io;
+
+    access_log /var/log/nginx/gateway-wetest.access.log;
+    error_log /var/log/nginx/gateway-wetest.error.log;
+
+    add_header X-Wetest-Gateway-Host $host always;
+
+    set_by_lua $uuid '
+            if ngx.var.http_x_wetest_request_id == nil then
+                return uuid4.getUUID()
+            else
+                return ngx.var.http_x_wetest_request_id
+            end
+        ';
+
+    more_set_input_headers -r "X-Wetest-Request-Id $uuid";
+    add_header X-Wetest-Request-Id $uuid always;
+
+    location /webapp/ {
+        proxy_set_header X-Wetest-Request-Id $uuid;
+        proxy_set_header X-Wetest-Gateway-Host $http_host;
+        proxy_set_header X-Wetest-Gateway-Path "conversion";
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host "webapp.local.wetest.io";
+        proxy_pass http://service_wetest-webapp/webapp/;
+        proxy_redirect off;
+    }
+
+    location / {
+        return 404;
+    }
+
+}

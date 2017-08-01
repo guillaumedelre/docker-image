@@ -1,0 +1,17 @@
+.idea
+.git
+.svn
+_svn
+.CVS
+.bzr
+*.swp
+.DS_Store
+__MACOSX
+thumbs.db
+transfer/
+log/*
+!log/.gitkeep
+volumes/*
+!volumes/.gitkeep
+sources/*
+!sources/.gitkeep

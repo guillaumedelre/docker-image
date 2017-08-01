@@ -1,0 +1,72 @@
+parameters:
+    fmm_app.broker.consumer_command: 
+    fmm_app.broker.consumer_max_messages: 
+    symfony_debug: 
+    fmm_app.redirection_file: 
+    fmm_app.trusted_proxies: 
+    fmm_app.cold_storage.scheme: 
+    fmm_app.solr.host: 
+    fmm_app.console: 
+    fmm_app.solr.port: 
+    fmm_app.gateway.private.port: 80
+    fmm_app.broker.vhost: 
+    fmm_app.cors: False
+    fmm_app.database.host: 
+    fmm_app.path: /mnt/sources/migranium/migrants/apps/freeb
+    fmm_app.solr.timeout: 
+    fmm_app.cold_storage.host: 
+    fmm_app.name: freeb
+    fmm_app.proxy: 
+    fmm_app.http_client.timeout: 30
+    fmm_app.solr.path: 
+    fmm_app.web.artifacts: web
+    fmm_app.gateway.private.host: migrants.local.francemm.com
+    fmm_app.gateway.public.scheme: http
+    fmm_app.mailer.mail_to: 
+    fmm_app.cold_storage.backup_path: 
+    fmm_app.mailer.user: 
+    fmm_app.cold_storage.replay_path: 
+    fmm_app.database.test: False
+    fmm_app.build_artifacts: 
+    fmm_app.broker.password: 
+    fmm_app.http.scheme: http
+    fmm_app.broker.consumer_section: 
+    fmm_app.fqname: application-migrants-freeb
+    fmm_app.gateway.private.scheme: http
+    fmm_app.database.port: 
+    fmm_app.broker.host: 
+    fmm_app.mailer.transport: smtp
+    fmm_app.broker.login: 
+    fmm_app.database.user: 
+    fmm_app.mailer.encryption: 
+    fmm_app.mailer.host: localhost
+    fmm_app.mailer.port: 
+    fmm_app.http.port: 80
+    fmm_app.gateway.public.host: migrants.local.francemm.com
+    fmm_app.database.driver: 
+    fmm_app.jwt: False
+    fmm_app.in_mem_store.uri: 
+    fmm_app.jwt_acl: False
+    fmm_app.database.name: 
+    fmm_app.mailer.password: 
+    fmm_app.front.controller: app
+    fmm_app.broker.consumer_queue: 
+    fmm_app.broker.consumer_max_execution_time: 
+    fmm_app.maintenance.path: 
+    fmm_app.bf.server.id: 1cb8d2af-b9f4-4fa7-ae6a-f6d5b0a1b937
+    fmm_app.gateway.public.port: 80
+    fmm_app.monitoring.url: 
+    fmm_app.solr.core: 
+    fmm_app.forwarded: False
+    fmm_app.server.name: freeb.migrants.local.francemm.com
+    fmm_app.http.host: freeb.migrants.local.francemm.com
+    fmm_app.broker.port: 
+    symfony_env: 
+    fmm_app.cold_storage.port: 
+    fmm_app.bf.server.token: f29678587317f03ea4fe043169390889705f141debeb07d76739006bffd3baea
+    fmm_app.mock.mode: 
+    fmm_app.database.password: 
+    fmm_app.secret: freebmigrantsfreebmigrantsfreebmigrantsfreebmigrants
+    fmm_app.jwt_secret: Qekaf5Roz4XeSe0To4Qok6Uu
+    fmm_app.mailer.mail_from: ~
+    fmm_app.bam_activity_listener.enabled: False

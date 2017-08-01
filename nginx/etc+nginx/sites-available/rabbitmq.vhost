@@ -1,0 +1,28 @@
+
+upstream service_rabbitmq {
+    server rabbitmq:15672;
+    keepalive 4;
+}
+
+server {
+
+    listen 80;
+    server_name rabbitmq.local.wetest.io;
+
+    access_log /var/log/nginx/rabbitmq.access.log;
+    error_log /var/log/nginx/rabbitmq.error.log;
+
+    location / {
+        proxy_pass http://service_rabbitmq;
+        proxy_set_header Host $host;
+        proxy_set_header Referer "";
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+
+}

@@ -1,0 +1,7 @@
+# WETEST
+10.5.0.3 local.wetest.io
+10.5.0.3 supervisor.local.wetest.io
+10.5.0.3 rabbitmq.local.wetest.io
+10.5.0.3 webapp.local.wetest.io
+10.5.0.3 documentation.local.wetest.io
+10.5.0.3 static.local.wetest.io
