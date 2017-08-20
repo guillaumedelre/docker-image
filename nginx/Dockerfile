@@ -30,7 +30,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -q -y \
 COPY ./etc/hosts /tmp/hosts
 
 # bash
-COPY ./root/.bashrc /tmp/.bashrc
+COPY ./root/ /tmp/root/
 
 # lua
 COPY ./usr+local+share+lua+5.1/ /usr/local/share/lua/5.1/

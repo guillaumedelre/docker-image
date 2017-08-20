@@ -56,7 +56,7 @@ RUN useradd -m -p $(openssl passwd -1 "dev") -s /bin/bash -G sudo "dev"
 COPY ./etc+pam.d /etc/pam.d
 
 # bash
-COPY ./root/.bashrc /tmp/.bashrc
+COPY ./root/ /tmp/root/
 COPY ./home/dev/ /tmp/home/dev/
 
 # hosts
@@ -72,6 +72,11 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN mkdir /home/dev/.composer
 RUN chown -R dev: /home/dev/.composer
 VOLUME ["/home/dev/.composer"]
+
+# symfony installer
+RUN mkdir -p /usr/local/bin
+RUN curl -LsS https://symfony.com/installer -o /usr/local/bin/symfony
+RUN chmod a+x /usr/local/bin/symfony
 
 # fabric
 RUN cd /tmp && curl -k -O https://bootstrap.pypa.io/get-pip.py && python get-pip.py \

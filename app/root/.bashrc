@@ -163,3 +163,5 @@ function parse_git_dirty {
 		echo ""
 	fi
 }
+
+source ~/.bash_profile

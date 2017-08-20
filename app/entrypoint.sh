@@ -3,9 +3,11 @@
 set -e
 
 echo "hydrating root bashrc"
-cat /tmp/.bashrc >> /root/.bashrc
+cat /tmp/root/.bashrc >> /root/.bashrc
+cat /tmp/root/.bash_profile >> /root/.bash_profile
 
-echo "hydrating dev bash_aliases"
+echo "hydrating dev bash dotfiles"
+cat /tmp/home/dev/.bash_profile >> /home/dev/.bash_profile
 cat /tmp/home/dev/.bash_aliases >> /home/dev/.bash_aliases
 cat /tmp/home/dev/.bashrc >> /home/dev/.bashrc
 

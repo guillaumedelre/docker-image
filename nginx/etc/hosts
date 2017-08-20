@@ -4,6 +4,9 @@
 10.5.0.3 supervisor.local.io
 10.5.0.3 rabbitmq.local.io
 
+# GDELRE
+10.5.0.3 gdelre.gallery.local.io
+
 # WETEST
-10.5.0.3 webapp.wetest.local.io
-10.5.0.3 documentation.wetest.local.io
+10.5.0.3 wetest.webapp.local.io
+10.5.0.3 wetest.documentation.local.io
