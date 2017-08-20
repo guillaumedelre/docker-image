@@ -1,0 +1,16 @@
+
+server {
+
+    listen 80;
+    root /mnt/sources/static;
+    index index.html;
+    server_name static.local.io;
+
+    access_log /var/log/nginx/static.local.io.access.log;
+    error_log /var/log/nginx/static.local.io.error.log;
+
+    location / {
+        autoindex on;
+    }
+
+}

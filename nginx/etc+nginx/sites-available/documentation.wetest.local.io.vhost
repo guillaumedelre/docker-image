@@ -1,0 +1,16 @@
+
+server {
+
+    listen 80;
+    root /mnt/sources/wetest/documentation/site;
+    index index.html;
+    server_name documentation.wetest.local.io;
+
+    access_log /var/log/nginx/documentation.wetest.local.io.access.log;
+    error_log /var/log/nginx/documentation.wetest.local.io.error.log;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+}

@@ -1,7 +1,9 @@
+# COMMON
+10.5.0.3 local.io
+10.5.0.3 static.local.io
+10.5.0.3 supervisor.local.io
+10.5.0.3 rabbitmq.local.io
+
 # WETEST
-10.5.0.3 local.wetest.io
-10.5.0.3 supervisor.local.wetest.io
-10.5.0.3 rabbitmq.local.wetest.io
-10.5.0.3 webapp.local.wetest.io
-10.5.0.3 documentation.local.wetest.io
-10.5.0.3 static.local.wetest.io
+10.5.0.3 webapp.wetest.local.io
+10.5.0.3 documentation.wetest.local.io

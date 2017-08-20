@@ -9,12 +9,13 @@ echo "hydrating root bashrc"
 cat /tmp/.bashrc >> /root/.bashrc
 
 echo "enabling sites"
-ln -s /etc/nginx/sites-available/documentation.vhost /etc/nginx/sites-enabled/documentation.vhost
-ln -s /etc/nginx/sites-available/rabbitmq.vhost /etc/nginx/sites-enabled/rabbitmq.vhost
-ln -s /etc/nginx/sites-available/static.vhost /etc/nginx/sites-enabled/static.vhost
-ln -s /etc/nginx/sites-available/supervisor.vhost /etc/nginx/sites-enabled/supervisor.vhost
-ln -s /etc/nginx/sites-available/gateway-wetest.vhost /etc/nginx/sites-enabled/gateway-wetest.vhost
-ln -s /etc/nginx/sites-available/wetest-webapp.vhost /etc/nginx/sites-enabled/wetest-webapp.vhost
+ln -s /etc/nginx/sites-available/webapp.wetest.local.io.vhost /etc/nginx/sites-enabled/webapp.wetest.local.io.vhost
+ln -s /etc/nginx/sites-available/documentation.wetest.local.io.vhost /etc/nginx/sites-enabled/documentation.wetest.local.io.vhost
+
+ln -s /etc/nginx/sites-available/gateway.local.io.vhost /etc/nginx/sites-enabled/gateway.local.io.vhost
+ln -s /etc/nginx/sites-available/static.local.io.vhost /etc/nginx/sites-enabled/static.local.io.vhost
+ln -s /etc/nginx/sites-available/rabbitmq.local.io.vhost /etc/nginx/sites-enabled/rabbitmq.local.io.vhost
+ln -s /etc/nginx/sites-available/supervisor.local.io.vhost /etc/nginx/sites-enabled/supervisor.local.io.vhost
 
 echo "starting nginx"
 #/usr/sbin/service nginx start

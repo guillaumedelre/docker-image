@@ -1,19 +1,19 @@
 
-upstream service_supervisor {
-    server app:9001;
+upstream service_rabbitmq {
+    server rabbitmq:15672;
     keepalive 4;
 }
 
 server {
 
     listen 80;
-    server_name supervisor.local.wetest.io;
+    server_name rabbitmq.local.io;
 
-    access_log /var/log/nginx/supervisor.access.log;
-    error_log /var/log/nginx/supervisor.error.log;
+    access_log /var/log/nginx/rabbitmq.local.io.access.log;
+    error_log /var/log/nginx/rabbitmq.local.io.error.log;
 
     location / {
-        proxy_pass http://service_supervisor;
+        proxy_pass http://service_rabbitmq;
         proxy_set_header Host $host;
         proxy_set_header Referer "";
         proxy_set_header X-Real-IP $remote_addr;
